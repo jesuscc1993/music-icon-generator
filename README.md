@@ -2,7 +2,7 @@
 
 ## Description
 
-Python script that generates folder icons for each music folder, recursively.
+Python script that generates folder icons for each music folder, recursively.  
 Will look for `folder.jpg`/`cover.jpg`/`AlbumArtSmall.jpg` files to use as icon.
 Windows only.
 
