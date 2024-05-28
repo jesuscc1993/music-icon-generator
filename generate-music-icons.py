@@ -58,8 +58,6 @@ def set_folder_icon(folder_path):
         with open(desktop_ini_path, "w") as desktop_ini:
             desktop_ini.write("[.ShellClassInfo]\n")
             desktop_ini.write(f"IconResource={ICON_FILENAME},0\n")
-            desktop_ini.write("IconArea_Image=icon.ico\n")
-            desktop_ini.write("IconArea_Text=0x00000000\n")
             desktop_ini.write("FolderType=Music\n")
 
         os.system(f'attrib +h +s "{desktop_ini_path}"')
