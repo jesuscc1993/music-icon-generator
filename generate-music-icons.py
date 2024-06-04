@@ -62,6 +62,7 @@ def set_folder_icon(folder_path):
 
         os.system(f'attrib +h +s "{desktop_ini_path}"')
         os.system(f'attrib +h "{icon_path}"')
+        os.system(f'attrib +s "{folder_path}"')
         
         print(f'Saved "{icon_path}" and "{desktop_ini_path}".')
     except PermissionError:
