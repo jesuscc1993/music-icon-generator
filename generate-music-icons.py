@@ -6,7 +6,7 @@ DESKTOP_INI_FILENAME = "desktop.ini"
 IMAGE_FILENAMES = ["folder.jpg", "cover.jpg", "AlbumArtSmall.jpg"]
 
 def main():
-    parent_folder = input("Please enter the path to the folder containing your PSP/PS3 save folders: ")
+    parent_folder = input("Please enter the path to the folder containing your music folders: ")
 
     if not os.path.isdir(parent_folder):
         print(f'The specified path "{parent_folder}" is not a directory.')
@@ -62,7 +62,6 @@ def set_folder_icon(folder_path):
 
         os.system(f'attrib +h +s "{desktop_ini_path}"')
         os.system(f'attrib +h "{icon_path}"')
-        os.system(f'attrib +s "{folder_path}"')
         
         print(f'Saved "{icon_path}" and "{desktop_ini_path}".')
     except PermissionError:
