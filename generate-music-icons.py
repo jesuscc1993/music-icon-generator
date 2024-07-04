@@ -40,9 +40,12 @@ def png_to_ico(image_path, ico_path):
             os.unlink(ico_path)
 
         with Image.open(image_path) as img:
-            img = img.resize((256, 256), resample=Image.LANCZOS)
+            if img.width < 256:
+                img = img.resize((256, int(256 * img.height / img.width)), resample=Image.LANCZOS)
+            img.thumbnail((256, 256), Image.LANCZOS)
             background = Image.new("RGBA", (256, 256), (0, 0, 0, 0))
-            background.paste(img, (0, 0))
+            offset = (int((256 - img.size[0]) / 2), int((256 - img.size[1]) / 2))
+            background.paste(img, offset)
             background.save(ico_path, format='ICO', sizes=[(256, 256)])
     except Exception as e:
         print(f"Error converting {image_path} to ICO: {e}")
